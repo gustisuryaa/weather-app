@@ -13,7 +13,8 @@ A simple, fast, and beautiful weather application built with Python and Flask. T
 * **API:** OpenWeatherMap API
 
 ## 📸 App Screenshot
-*(You can drop your screenshot image here later)*
+<img width="787" height="764" alt="Screenshot 2026-05-19 at 11 32 17" src="https://github.com/user-attachments/assets/5f6074f0-34b5-43f9-a531-def75864defe" />
+
 
 ## 🚀 How to Run Locally
 1. Clone this repository: `git clone https://github.com/gustisuryaa/weather-app.git`
