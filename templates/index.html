@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gusti's Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>🌤️ Cek Cuaca</h1>
+        
+        <form method="POST">
+            <input type="text" name="city" placeholder="Masukkan nama kota..." required autocomplete="off">
+            <button type="submit">Cari Cuaca</button>
+        </form>
+
+        {% if weather_data %}
+            <div class="result">
+                {% if weather_data.error %}
+                    <p class="error">{{ weather_data.error }}</p>
+                {% else %}
+                    <h2>{{ weather_data.name }}, {{ weather_data.sys.country }}</h2>
+                    <img src="http://openweathermap.org/img/wn/{{ weather_data.weather[0].icon }}@2x.png" alt="Weather Icon">
+                    
+                    <h1 class="temp">{{ weather_data.main.temp | round }}°C</h1>
+                    <p class="desc">{{ weather_data.weather[0].description | capitalize }}</p>
+                    
+                    <div class="details">
+                        <p>💧 Kelembapan:<br><b>{{ weather_data.main.humidity }}%</b></p>
+                        <p>💨 Angin:<br><b>{{ weather_data.wind.speed }} m/s</b></p>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
